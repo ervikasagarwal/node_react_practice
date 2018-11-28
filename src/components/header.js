@@ -9,12 +9,14 @@ class Header extends React.Component{
     }
     render(){
         return(
-            <div className="header col-sm-12 row">
+            <div className="header  row">
                <div className="col-sm-10">
-                 <h4 className="pt-4" >WebSite Name</h4>
+                 <h4 className="pt-4 pl-3" >WebSite Name</h4>
                </div>
-               <div className="col-sm-2 pt-3 ">
-                 <button className="btn btn-danger form-control" onClick={this.props.loggedOut} >Logout</button>
+               <div className="col-sm-2 pt-3 pr-2  ">
+                 <button className="btn btn-danger  " onClick={this.props.loggedOut} >
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 </button>
                </div>
             </div>
         );
