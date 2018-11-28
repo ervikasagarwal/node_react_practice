@@ -9,7 +9,6 @@ const customStyles = {
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)'
-
     }
   };
 
@@ -40,7 +39,7 @@ class MessageModal extends React.Component{
                         <button type="button" className="close" data-dismiss="modal" onClick={this.onClose} >&times;</button>
                     </div>
                     <div className="modal-body bg-white shadow-lg ">
-                        <h5 className={this.state.colorClass}>{this.props.message} </h5>
+                        <h5 className={this.props.messageType==='positive'?'text-success':'text-danger'}>{this.props.message} </h5>
                     </div>
                 </Modal>
           </div>

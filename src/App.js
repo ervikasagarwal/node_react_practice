@@ -21,6 +21,7 @@ class App extends Component {
         dataModalUser : { name:"vikas", email: "vikas@gmail.com", mobile:"9887712666"},
         message:"",
         isMessageModalActive:false,
+        messageType:'negative',
         loggedOut : false,
         currentEvent:'',
       }
@@ -35,7 +36,10 @@ class App extends Component {
   }
 
   loggedOut = ()=>{
-        this.setState({loggedOut:true,message:"Successfully Logged Out" ,isMessageModalActive:true});
+        this.setState({loggedOut:true,
+                       message:"Successfully Logged Out" ,
+                       messageType:'positive',
+                       isMessageModalActive:true});
   }
 
   handleAddUserEvent = ()=> {
@@ -105,7 +109,7 @@ class App extends Component {
         <Header  loggedOut={()=>{this.loggedOut()}} />
         <Body users={this.state.users}  AddButtonCliicked={()=>{ this.handleAddUserEvent()}} editClicked={(id)=>{ this.handleEditClicked(id)}} deleteClicked={(id)=>{ this.handleDeleteClicked(id)}}/>
         <DataModal heading={this.state.dataModalHeading} isModalActive={this.state.isDataModalActive} isClose={(bool) =>{ this.closeDataModal(bool);} } handleSubmit={(event)=> { this.handleOnDataModalSubmit(event);}} userData={this.state.dataModalUser} />
-        <MessageModal message={this.state.message}  isModalActive={this.state.isMessageModalActive} isClose={(bool) =>{ this.closeMessageModal(bool);} } />
+        <MessageModal message={this.state.message}  isModalActive={this.state.isMessageModalActive} isClose={(bool) =>{ this.closeMessageModal(bool);} } messageType={this.state.messageType} />
       </div>
     );
   }
