@@ -10,7 +10,7 @@ class UserRow extends React.Component{
                 <div  className="col-sm-2 " >{this.props.userDetails.mobile}</div>
                 <button className="col-sm-2  btn btn-primary" onClick={()=>{this.props.editClicked(this.props.userDetails.id);}} >Edit</button>
                 <div className="col-sm-1"></div>
-                <button className="col-sm-2 btn btn-danger " onClick={()=>{this.props.onAction();}} >Delete</button> 
+                <button className="col-sm-2 btn btn-danger " onClick={()=>{this.props.deleteClicked(this.props.userDetails.id);}} >Delete</button> 
             </div>
         );
     }

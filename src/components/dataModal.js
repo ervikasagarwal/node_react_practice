@@ -17,7 +17,6 @@ const customStyles = {
 class DataModal extends React.Component{
     constructor(){
         super();
-
     }
     onClose = ()=>{
         this.props.isClose(true);
@@ -35,9 +34,9 @@ class DataModal extends React.Component{
                             <label htmlFor="name">Name</label>
                             <input type="text" className="form-control" name="name" required="required" defaultValue={this.props.userData.name}/>
                             <label htmlFor="name">Email Id </label>
-                            <input type="email" className="form-control " name="email"  required="required" placeholder="vikas@gmail.com" defaultValue={this.props.userData.email} />
+                            <input type="email" className="form-control " name="email"  required="required" placeholder="enter email id" defaultValue={this.props.userData.email} />
                             <label htmlFor="mobile">Mobile Number</label>
-                            <input  type="number" className=" form-control" name="description"  required="required"  defaultValue={this.props.userData.mobile} /><br />
+                            <input  type="number" className=" form-control" name="description"  required="required" maxLength="10" minLength="10" max="9999999999" min="0000000000" defaultValue={this.props.userData.mobile} /><br />
                             <input type="submit" value="submit" className="btn btn-primary form-control"  />
                         </form >
                     </div>
