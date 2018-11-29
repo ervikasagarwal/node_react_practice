@@ -7,4 +7,7 @@ const AddButton = (props)=>{
                 </div>
         );
 }
+// AddButton.propTypes = {
+//     onClick:React.PropTypes.func.isRequired,
+// } 
 export default AddButton;

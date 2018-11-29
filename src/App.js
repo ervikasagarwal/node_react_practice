@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router';
+
 import Header from './components/header';
 import Body from './components/body';
 import DataModal from './components/dataModal';
 import MessageModal from './components/messageModal';
+
 
 class App extends Component {
   constructor(){
@@ -10,11 +13,11 @@ class App extends Component {
       this.state = {
         users : [
           { id:1,'name': 'vikas', 'email':"vkas@gmail.com", 'mobile': '9879896975' },
-          { id:2,'name': 'vikas', 'email':"vkas@gmail.com", 'mobile': '9879896975' },
-          { id:3,'name': 'vikas', 'email':"vkas@gmail.com", 'mobile': '9879896975' },
-          { id:4, 'name': 'vikas', 'email':"vkas@gmail.com", 'mobile': '9879896975' },
-          { id:5,'name': 'vikas', 'email':"vkas@gmail.com", 'mobile': '9879896975' },
-          { id:6,'name': 'vikas', 'email':"vkas@gmail.com", 'mobile': '9879896975' },
+          { id:2,'name': 'pankaj', 'email':"pankja@gmail.com", 'mobile': '9879896975' },
+          { id:3,'name': 'shashi', 'email':"shashi@gmail.com", 'mobile': '9879896975' },
+          { id:4, 'name': 'santu', 'email':"santu@gmail.com", 'mobile': '9879896975' },
+          { id:5,'name': 'john', 'email':"john@gmail.com", 'mobile': '9879896787' },
+          { id:6,'name': 'konark', 'email':"konark@gmail.com", 'mobile': '9879895464' },
         ],
         isDataModalActive:false,
         dataModalHeading:"Add New User",
@@ -42,7 +45,7 @@ class App extends Component {
                        isMessageModalActive:true});
   }
 
-  handleAddUserEvent = ()=> {
+  handleAddButtonClicked = ()=> {
     this.setState({
                    currentEvent:"add",
                    dataModalHeading:"Add New User",
@@ -106,8 +109,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        { this.state.loggedOut && <Redirect to="/"/> }
         <Header  loggedOut={()=>{this.loggedOut()}} />
-        <Body users={this.state.users}  AddButtonCliicked={()=>{ this.handleAddUserEvent()}} editClicked={(id)=>{ this.handleEditClicked(id)}} deleteClicked={(id)=>{ this.handleDeleteClicked(id)}}/>
+        <Body users={this.state.users}  AddButtonCliicked={this.handleAddButtonClicked} editClicked={(id)=>{ this.handleEditClicked(id)}} deleteClicked={(id)=>{ this.handleDeleteClicked(id)}}/>
         <DataModal heading={this.state.dataModalHeading} isModalActive={this.state.isDataModalActive} isClose={(bool) =>{ this.closeDataModal(bool);} } handleSubmit={(event)=> { this.handleOnDataModalSubmit(event);}} userData={this.state.dataModalUser} />
         <MessageModal message={this.state.message}  isModalActive={this.state.isMessageModalActive} isClose={(bool) =>{ this.closeMessageModal(bool);} } messageType={this.state.messageType} />
       </div>

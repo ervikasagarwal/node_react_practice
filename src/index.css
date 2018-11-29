@@ -12,3 +12,19 @@
 .userData{
   overflow: hidden;
 }
+.footer{
+  height:100px;
+  background:black;
+  color:white;
+  text-align: center;
+
+}
+.space{
+  height:200px;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  color:yellow;
+}
