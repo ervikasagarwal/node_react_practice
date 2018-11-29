@@ -38,11 +38,12 @@ class App extends Component {
     this.setState({isDataModalActive:false});
   }
 
-  loggedOut = ()=>{
-        this.setState({loggedOut:true,
+  loggedOut = async ()=>{
+        await this.setState({loggedOut:true,
                        message:"Successfully Logged Out" ,
                        messageType:'positive',
                        isMessageModalActive:true});
+        this.props.loggedOut(this.state.loggedOut);
   }
 
   handleAddButtonClicked = ()=> {

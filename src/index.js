@@ -28,7 +28,7 @@ class Main extends Component {
             <div>
                     <Switch>
                         <Route exact strict path="/" component={()=>{ return <Login authorized={(isValid)=>{ this.authorized(isValid)}}/>}}  />
-                        <Route path="/data" component={()=>{ return (this.state.signnedIn?<App /> : <div>{alert('you need to sign in first')}<Redirect  to="/"/></div>) }} />
+                        <Route path="/data" component={()=>{ return (this.state.signnedIn?<App  loggedOut={(isLoggedOut)=>{ this.authorized(!isLoggedOut)}} /> : <div>{alert('you need to sign in first')}<Redirect  to="/"/></div>) }} />
                     </Switch>
                     <Route path="/" component={Footer}></Route>
              </div>
